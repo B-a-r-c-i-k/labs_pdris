@@ -1,9 +1,10 @@
 minikube start
 minikube dashboard
-minikube docker-env
-eval $(minikube -p minikube docker-env)
-docker pull paulbouwer/hello-kubernetes:1.10
+
+Из папки example/
 helm install test . -n my-test --create-namespace
 
+Дальше можно выполнить команды из Notes и посмотреть результат
 
-helm uninstall test -n my-test
+Чтобы удалить
+helm uninstall test -n my-test 
