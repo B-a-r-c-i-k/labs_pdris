@@ -1,0 +1,10 @@
+minikube start
+minikube dashboard
+
+Из папки example/
+helm install test . -n my-test --create-namespace
+
+Дальше можно выполнить команды из Notes и посмотреть результат
+
+Чтобы удалить
+helm uninstall test -n my-test 
