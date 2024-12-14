@@ -26,3 +26,6 @@ spec:
             port: 5000
           initialDelaySeconds: 10
           periodSeconds: 5
+        env:
+          - name: MYSQL_SERVICE_HOST
+            value: mysql-service
