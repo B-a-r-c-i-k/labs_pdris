@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    environment {
-        // PATH = '$PATH:/usr/local/go/bin'
-        GOPATH = '/usr/local/go/bin'
-    }
+    // environment {
+    //     // PATH = '$PATH:/usr/local/go/bin'
+    //     // GOPATH = '/usr/local/go/bin'
+    // }
     options {
         timestamps()
     }
@@ -20,8 +20,10 @@ pipeline {
             steps {
                 script {
                     sh 'curl -Ok https://dl.google.com/go/go1.23.4.linux-amd64.tar.gz'
-                    sh 'tar -C /usr/local -xf go1.23.4.linux-amd64.tar.gz'
-                    sh 'go version'
+                    sh 'tar -C /home -xf go1.23.4.linux-amd64.tar.gz'
+                    GOPATH = '/usr/local/go/bin'
+                    PATH = '$PATH:/usr/local/go/bin'
+                    sh 'GOPATH=/home PATH=$PATH:$GOPATH go version'
                 }
                 // sh 'curl -Ok https://go.dev/dl/go1.23.4.linux-amd64.tar.gz'
                 // sh 'tar -C /usr/local -xzf go1.23.4.linux-amd64.tar.gz'
