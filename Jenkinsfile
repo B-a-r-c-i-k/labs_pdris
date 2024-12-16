@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Clone') {
             steps {
-                println("privet")
+                println("privett")
                 sh 'git clone -b lab4 https://github.com/B-a-r-c-i-k/labs_pdris.git .'
                 // git branch: 'lab4',
                 // credentialsId: '12345-1234-4696-af25-123455',
