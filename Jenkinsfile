@@ -19,7 +19,7 @@ pipeline {
         stage('Lets go') {
             steps {
                 script {
-                    sh 'curl -Ok https://go.dev/dl/go1.23.4.linux-amd64.tar.gz'
+                    sh 'curl -Ok https://dl.google.com/go/go1.23.4.linux-amd64.tar.gz'
                     sh 'tar -C /usr/local -xf go1.23.4.linux-amd64.tar.gz'
                     sh 'go version'
                 }
