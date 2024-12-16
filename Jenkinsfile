@@ -8,6 +8,11 @@ pipeline {
         timestamps()
     }
     stages {
+        stage ("Glina") {
+            steps {
+                cleanWs()
+            }
+        }
         stage('Clone') {
             steps {
                 println("privet")
