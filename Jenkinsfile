@@ -16,6 +16,12 @@ pipeline {
         stage('Clone') {
             steps {
                 println("privet")
+                sshagent(["ssh-322"]) {
+                    sh 'git clone -b lab4 git@github.com:B-a-r-c-i-k/labs_pdris.git .'
+                }
+                // git branch: 'lab4',
+                // credentialsId: '12345-1234-4696-af25-123455',
+                // url: 'git@github.com:B-a-r-c-i-k/labs_pdris.git'
             }
             // git branch: 'lab4',
             // credentialsId: '12345-1234-4696-af25-123455',
