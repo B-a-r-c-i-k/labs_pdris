@@ -15,9 +15,14 @@ pipeline {
         }
         stage('Lets go') {
             steps {
-                sh 'curl -Ok https://go.dev/dl/go1.23.4.linux-amd64.tar.gz'
-                sh 'tar -C /usr/local -xzf go1.23.4.linux-amd64.tar.gz'
-                sh 'go version'
+                script {
+                    sh 'curl -Ok https://go.dev/dl/go1.23.4.linux-amd64.tar.gz'
+                    sh 'tar -C /usr/local -xzf go1.23.4.linux-amd64.tar.gz'
+                    sh 'go version'
+                }
+                // sh 'curl -Ok https://go.dev/dl/go1.23.4.linux-amd64.tar.gz'
+                // sh 'tar -C /usr/local -xzf go1.23.4.linux-amd64.tar.gz'
+                // sh 'go version'
                 // env 'PATH=$PATH:/usr/local/go/bin'
             }
             // agent {
