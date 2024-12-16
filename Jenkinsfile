@@ -31,6 +31,7 @@ pipeline {
                     sh 'curl -Ok https://dl.google.com/go/go1.23.4.linux-amd64.tar.gz'
                     sh 'tar -C $JENKINS_HOME -xf go1.23.4.linux-amd64.tar.gz'
                     sh 'GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go version'
+                    sh 'GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go get -u github.com/jstemmer/go-junit-report'
                 }
             }
             // steps {
@@ -44,7 +45,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go test *.go -v'
+                sh 'GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go test *.go -v | go-junit-report > report.xml'
                 // allureReport reportDir: 'allure-results'
             }
         }
