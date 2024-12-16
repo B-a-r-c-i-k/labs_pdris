@@ -40,7 +40,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go test -v ./...'
+                sh 'GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go test -v .'
                 // allureReport reportDir: 'allure-results'
             }
         }
