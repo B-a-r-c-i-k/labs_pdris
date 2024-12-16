@@ -33,12 +33,12 @@ pipeline {
                 sh 'GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go mod init main'
             }
         }
-        // stage('Test') {
-        //     steps {
-        //         sh 'go test *.go -v'
-        //         allureReport reportDir: 'allure-results'
-        //     }
-        // }
+        stage('Test') {
+            steps {
+                sh 'GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go test *.go -v'
+                // allureReport reportDir: 'allure-results'
+            }
+        }
         // stage('SonarQube Analysis') {
         //     steps {
         //         withSonarQubeEnv('SonarQube Server') {
