@@ -44,8 +44,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go get -u github.com/jstemmer/go-junit-report'
-                sh 'GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go test *.go -v | go-junit-report > report.xml'
+                sh 'GOROOT=$JENKINS_HOME/go GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go get -u github.com/jstemmer/go-junit-report'
+                sh 'GOROOT=$JENKINS_HOME/go GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go test *.go -v | go-junit-report > report.xml'
                 // allureReport reportDir: 'allure-results'
             }
         }
