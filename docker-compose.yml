@@ -1,3 +1,5 @@
+version: "3.4"
+
 services:
   jenkins:
     image: jenkins/jenkins
@@ -6,6 +8,13 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - jenkins_home:/var/jenkins_home
+  # build:
+  #   network: host
+
+# networks:
+#   host:
+#     name: host
+#     external: true
     # environment: 
     #   - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 

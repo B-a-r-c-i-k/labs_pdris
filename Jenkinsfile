@@ -4,6 +4,10 @@ pipeline {
         PATH = '$PATH:/usr/local/go/bin'
         GOPATH = '/usr/local/go/bin'
     }
+    options {
+        timestamps()
+        ansiColor('xterm')
+    }
     stages {
         stage('Clone') {
             steps {
