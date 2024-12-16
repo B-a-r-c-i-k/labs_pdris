@@ -60,13 +60,16 @@ pipeline {
                 // }
             }
         }
-        // stage('SonarQube Analysis') {
-        //     steps {
-        //         withSonarQubeEnv('SonarQube Server') {
-        //             sh 'mvn sonar:sonar'
-        //         }
-        //     }
-        // }
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    def scannerHome = tool name: 'sonar';
+                    withSonarQubeEnv('My SonarQube Server') { 
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
+            }
+        }
         // stage('Deploy') {
         //     steps {
         //         sh 'docker build -t my-app .'
