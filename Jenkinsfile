@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                
+                println("darova epta")
             }
             // git branch: 'lab4',
             // credentialsId: '12345-1234-4696-af25-123455',
