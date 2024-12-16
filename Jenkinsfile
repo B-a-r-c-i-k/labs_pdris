@@ -3,11 +3,16 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                println("darova epta")
+                println("privet")
             }
             // git branch: 'lab4',
             // credentialsId: '12345-1234-4696-af25-123455',
             // url: 'git@github.com:B-a-r-c-i-k/labs_pdris.git'
+        }
+        stage('Install go') {
+            steps {
+                sh 'sudo apt-get install go'
+            }
         }
         // stage('Build') {
         //     steps {
