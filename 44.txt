@@ -1,0 +1,115 @@
+Started by user admin
+Obtained Jenkinsfile from git https://github.com/B-a-r-c-i-k/labs_pdris.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/kek
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential ssh-322
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/kek/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/B-a-r-c-i-k/labs_pdris.git # timeout=10
+Fetching upstream changes from https://github.com/B-a-r-c-i-k/labs_pdris.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.5'
+using GIT_SSH to set credentials 
+Verifying host key using known hosts file
+You're using 'Known hosts file' strategy to verify ssh host keys, but your known_hosts file does not exist, please go to 'Manage Jenkins' -> 'Security' -> 'Git Host Key Verification Configuration' and configure host key verification.
+ > git fetch --tags --force --progress -- https://github.com/B-a-r-c-i-k/labs_pdris.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/lab4^{commit} # timeout=10
+Checking out Revision 3db8de6239ff5f34d7c604f5aaaa4d73e67d00b2 (refs/remotes/origin/lab4)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 3db8de6239ff5f34d7c604f5aaaa4d73e67d00b2 # timeout=10
+Commit message: "kek"
+ > git rev-list --no-walk 188edb4a866e744af10486ebb7fb049e6247a413 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Glina)
+[Pipeline] cleanWs
+[2024-12-16T17:25:02.791Z] [WS-CLEANUP] Deleting project workspace...
+[2024-12-16T17:25:02.791Z] [WS-CLEANUP] Deferred wipeout is used...
+[2024-12-16T17:25:02.805Z] [WS-CLEANUP] done
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Clone)
+[Pipeline] echo
+[2024-12-16T17:25:02.941Z] privett
+[Pipeline] sh
+[2024-12-16T17:25:03.219Z] + git clone -b lab4 https://github.com/B-a-r-c-i-k/labs_pdris.git .
+[2024-12-16T17:25:03.219Z] Cloning into '.'...
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Lets go)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
+[2024-12-16T17:25:04.210Z] + curl -Ok https://dl.google.com/go/go1.23.4.linux-amd64.tar.gz
+[2024-12-16T17:25:04.210Z]   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+[2024-12-16T17:25:04.210Z]                                  Dload  Upload   Total   Spent    Left  Speed
+[2024-12-16T17:25:04.210Z] [2024-12-16T17:25:04.761Z]   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[2024-12-16T17:25:05.677Z]   3 70.2M    3 2591k    0     0  3665k      0  0:00:19 --:--:--  0:00:19 3665k[2024-12-16T17:25:07.026Z]  12 70.2M   12 8847k    0     0  5235k      0  0:00:13  0:00:01  0:00:12 5235k[2024-12-16T17:25:07.937Z]  21 70.2M   21 15.3M    0     0  5841k      0  0:00:12  0:00:02  0:00:10 5840k[2024-12-16T17:25:08.861Z]  30 70.2M   30 21.4M    0     0  5955k      0  0:00:12  0:00:03  0:00:09 5954k[2024-12-16T17:25:09.773Z]  39 70.2M   39 27.5M    0     0  6009k      0  0:00:11  0:00:04  0:00:07 6008k[2024-12-16T17:25:10.685Z]  48 70.2M   48 34.4M    0     0  6195k      0  0:00:11  0:00:05  0:00:06 6554k[2024-12-16T17:25:12.030Z]  58 70.2M   58 41.3M    0     0  6326k      0  0:00:11  0:00:06  0:00:05 6694k[2024-12-16T17:25:12.948Z]  67 70.2M   67 47.6M    0     0  6342k      0  0:00:11  0:00:07  0:00:04 6611k[2024-12-16T17:25:13.867Z]  77 70.2M   77 54.4M    0     0  6424k      0  0:00:11  0:00:08  0:00:03 6769k[2024-12-16T17:25:14.779Z]  86 70.2M   86 60.9M    0     0  6444k      0  0:00:11  0:00:09  0:00:02 6851k[2024-12-16T17:25:15.330Z]  95 70.2M   95 67.3M    0     0  6453k      0  0:00:11  0:00:10  0:00:01 6747k[2024-12-16T17:25:15.330Z] 100 70.2M  100 70.2M    0     0  6476k      0  0:00:11  0:00:11 --:--:-- 6705k
+[Pipeline] sh
+[2024-12-16T17:25:15.615Z] + tar -C /var/jenkins_home -xf go1.23.4.linux-amd64.tar.gz
+[Pipeline] sh
+[2024-12-16T17:25:19.145Z] + GOPATH=/var/jenkins_home/go/bin PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/jenkins_home/go/bin go version
+[2024-12-16T17:25:19.145Z] go version go1.23.4 linux/amd64
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
+[2024-12-16T17:25:19.567Z] + GOPATH=/var/jenkins_home/go/bin PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/jenkins_home/go/bin go mod init main
+[2024-12-16T17:25:19.568Z] go: creating new go.mod: module main
+[2024-12-16T17:25:19.568Z] go: to add module requirements and sums:
+[2024-12-16T17:25:19.568Z] 	go mod tidy
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] sh
+[2024-12-16T17:25:19.946Z] + GOROOT=/var/jenkins_home/go GOPATH=/var/jenkins_home/go PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/jenkins_home/go/bin go install github.com/jstemmer/go-junit-report/v2@latest
+[2024-12-16T17:25:20.198Z] warning: GOPATH set to GOROOT (/var/jenkins_home/go) has no effect
+[Pipeline] sh
+[2024-12-16T17:25:20.748Z] + mkdir allure
+[Pipeline] sh
+[2024-12-16T17:25:21.027Z] + + GOROOT=/var/jenkins_home/go GOPATH=/var/jenkins_home/go PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/jenkins_home/go/bin go test main.go main_test.go -v
+[2024-12-16T17:25:21.027Z] /var/jenkins_home/go/bin/go-junit-report
+[2024-12-16T17:25:21.027Z] warning: GOPATH set to GOROOT (/var/jenkins_home/go) has no effect
+[Pipeline] allure
+[2024-12-16T17:25:21.678Z] [kek] $ /var/jenkins_home/tools/ru.yandex.qatools.allure.jenkins.tools.AllureCommandlineInstallation/allure-install/bin/allure generate -c -o /var/jenkins_home/workspace/kek/allure-report
+[2024-12-16T17:25:23.207Z] allure-results does not exist
+[2024-12-16T17:25:24.250Z] Report successfully generated to /var/jenkins_home/workspace/kek/allure-report
+[2024-12-16T17:25:24.279Z] Allure report was successfully generated.
+[2024-12-16T17:25:24.279Z] Creating artifact for the build.
+[2024-12-16T17:25:24.404Z] Artifact was added to the build.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (SonarQube Analysis)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] tool
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
