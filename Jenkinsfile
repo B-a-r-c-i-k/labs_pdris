@@ -20,10 +20,8 @@ pipeline {
             steps {
                 script {
                     sh 'curl -Ok https://dl.google.com/go/go1.23.4.linux-amd64.tar.gz'
-                    sh 'tar -C /home -xf go1.23.4.linux-amd64.tar.gz'
-                    GOPATH = '/usr/local/go/bin'
-                    PATH = '$PATH:/usr/local/go/bin'
-                    sh 'GOPATH=/home PATH=$PATH:$GOPATH go version'
+                    sh 'tar -C $JENKINS_HOME -xf go1.23.4.linux-amd64.tar.gz'
+                    sh 'GOPATH=$JENKINS_HOME/go PATH=$PATH:$GOPATH go version'
                 }
                 // sh 'curl -Ok https://go.dev/dl/go1.23.4.linux-amd64.tar.gz'
                 // sh 'tar -C /usr/local -xzf go1.23.4.linux-amd64.tar.gz'
