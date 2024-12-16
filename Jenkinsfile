@@ -45,8 +45,16 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'GOROOT=$JENKINS_HOME/go GOPATH=$JENKINS_HOME/go PATH=$PATH:$GOPATH/bin go install github.com/jstemmer/go-junit-report/v2@latest'
-                sh 'GOROOT=$JENKINS_HOME/go GOPATH=$JENKINS_HOME/go PATH=$PATH:$GOPATH/bin go test *.go -v | $JENKINS_HOME/go/bin/go-junit-report > report.xml'
-                // allureReport reportDir: 'allure-results'
+                sh 'GOROOT=$JENKINS_HOME/go GOPATH=$JENKINS_HOME/go PATH=$PATH:$GOPATH/bin go test *.go -v | $JENKINS_HOME/go/bin/go-junit-report > allure/report.xml'
+                // script {
+                allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: '$JENKINS_HOME/workspace/allure']]
+                ])
+                // }
             }
         }
         // stage('SonarQube Analysis') {
