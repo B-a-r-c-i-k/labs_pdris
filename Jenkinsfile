@@ -9,9 +9,18 @@ pipeline {
             // credentialsId: '12345-1234-4696-af25-123455',
             // url: 'git@github.com:B-a-r-c-i-k/labs_pdris.git'
         }
-        stage('Install go') {
+        stage('Lets go') {
+            agent {
+                docker {
+                    image 'golang'
+                    // Run the container on the node specified at the
+                    // top-level of the Pipeline, in the same workspace,
+                    // rather than on a new node entirely:
+                    reuseNode true
+                }
+            }
             steps {
-                sh 'sudo apt-get install go'
+                sh 'go mod init main'
             }
         }
         // stage('Build') {
