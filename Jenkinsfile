@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        PATH = '$PATH:/usr/local/go/bin'
+        // PATH = '$PATH:/usr/local/go/bin'
         GOPATH = '/usr/local/go/bin'
     }
     options {
