@@ -23,29 +23,16 @@ pipeline {
                     sh 'tar -C $JENKINS_HOME -xf go1.23.4.linux-amd64.tar.gz'
                     sh 'GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go version'
                 }
-                // sh 'curl -Ok https://go.dev/dl/go1.23.4.linux-amd64.tar.gz'
-                // sh 'tar -C /usr/local -xzf go1.23.4.linux-amd64.tar.gz'
-                // sh 'go version'
-                // env 'PATH=$PATH:/usr/local/go/bin'
             }
-            // agent {
-            //     docker {
-            //         image 'golang'
-            //         // Run the container on the node specified at the
-            //         // top-level of the Pipeline, in the same workspace,
-            //         // rather than on a new node entirely:
-            //         reuseNode true
-            //     }
-            // }
             // steps {
             //     sh 'go mod init main'
             // }
         }
-        // stage('Build') {
-        //     steps {
-        //         sh 'go mod init main'
-        //     }
-        // }
+        stage('Build') {
+            steps {
+                sh 'GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go mod init main'
+            }
+        }
         // stage('Test') {
         //     steps {
         //         sh 'go test *.go -v'
