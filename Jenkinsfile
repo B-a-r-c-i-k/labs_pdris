@@ -48,7 +48,10 @@ pipeline {
                 sh 'mkdir allure'
                 sh 'GOROOT=$JENKINS_HOME/go GOPATH=$JENKINS_HOME/go PATH=$PATH:$GOPATH/bin go test *.go -v | $JENKINS_HOME/go/bin/go-junit-report > allure/report.xml'
                 // script {
+                sh 'curl -Ok https://github.com/allure-framework/allure2/releases/download/2.32.0/allure-2.32.0.zip'
+                sh 'unzip allure-2.32.0.zip'
                 allure([
+                        commandline: '2.13.8'
                         includeProperties: false,
                         jdk: '',
                         properties: [],
