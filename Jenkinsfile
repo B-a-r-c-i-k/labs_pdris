@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    // environment {
-    //     // PATH = '$PATH:/usr/local/go/bin'
-    //     // GOPATH = '/usr/local/go/bin'
-    // }
     options {
         timestamps()
     }
@@ -17,13 +13,7 @@ pipeline {
             steps {
                 println("privett")
                 sh 'git clone -b lab4 https://github.com/B-a-r-c-i-k/labs_pdris.git .'
-                // git branch: 'lab4',
-                // credentialsId: '12345-1234-4696-af25-123455',
-                // url: 'git@github.com:B-a-r-c-i-k/labs_pdris.git'
             }
-            // git branch: 'lab4',
-            // credentialsId: '12345-1234-4696-af25-123455',
-            // url: 'git@github.com:B-a-r-c-i-k/labs_pdris.git'
         }
         stage('Lets go') {
             steps {
@@ -33,9 +23,6 @@ pipeline {
                     sh 'GOPATH=$JENKINS_HOME/go/bin PATH=$PATH:$GOPATH go version'
                 }
             }
-            // steps {
-            //     sh 'go mod init main'
-            // }
         }
         stage('Build') {
             steps {
@@ -70,11 +57,5 @@ pipeline {
                 }
             }
         }
-        // stage('Deploy') {
-        //     steps {
-        //         sh 'docker build -t my-app .'
-        //         sh 'docker push my-app'
-        //     }
-        // }
     }
 }
